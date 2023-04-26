@@ -116,6 +116,24 @@
      (scoped_identifier
        name: (identifier) @constant)))
  (#lua-match? @constant "^[A-Z]"))
+((match_arm
+   pattern: (match_pattern
+     (tuple_pattern
+       (scoped_identifier
+         name: (identifier) @constant))))
+ (#lua-match? @constant "^[A-Z]"))
+((match_arm
+   pattern: (match_pattern
+     (struct_pattern
+       type: (scoped_type_identifier
+         name: (type_identifier) @constant))))
+ (#lua-match? @constant "^[A-Z]"))
+((match_arm
+   pattern: (match_pattern
+     (tuple_struct_pattern
+       type: (scoped_identifier
+         name: (identifier) @constant))))
+ (#lua-match? @constant "^[A-Z]"))
 
 ((identifier) @constant.builtin
  (#any-of? @constant.builtin "Some" "None" "Ok" "Err"))
